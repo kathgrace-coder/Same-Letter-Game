@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Same Letter, Different Words</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="wrap narrow">
+  <div class="center" style="margin:30px 0 24px">
+    <div class="brand">Virtual team game</div>
+    <h1 style="font-size:46px;line-height:1.05;margin-top:10px">Same Letter,<br>Different Words</h1>
+    <p class="muted" style="font-weight:700">Read the clue. Type the word. Be the fastest.</p>
+  </div>
+  <form class="card" id="f" autocomplete="off">
+    <label class="lbl" for="code">Game code</label>
+    <input type="text" id="code" maxlength="4" placeholder="ABCD" style="text-transform:uppercase;letter-spacing:.3em;text-align:center;font-size:34px" autocapitalize="characters" spellcheck="false">
+    <label class="lbl" for="name">Your name</label>
+    <input type="text" id="name" maxlength="20" placeholder="e.g. Kath">
+    <div class="err" id="err"></div>
+    <button class="btn big" style="width:100%;margin-top:8px">Join game</button>
+  </form>
+  <p class="center" style="margin-top:28px"><a href="host.html" class="muted" style="font-weight:800">I'm the host — set up a game →</a></p>
+</div>
+<script src="common.js"></script>
+<script>
+const q = new URLSearchParams(location.search);
+const saved = store.get('slg_player');
+$('#code').value = (q.get('code') || (saved && saved.code) || '').toUpperCase();
+if (saved) $('#name').value = saved.name || '';
+$('#f').onsubmit = async e => {
+  e.preventDefault();
+  const code = $('#code').value.trim().toUpperCase(), name = $('#name').value.trim();
+  if (code.length !== 4) return $('#err').textContent = 'Enter the 4-letter game code.';
+  const r = await post('/api/join', { code, name, token: saved && saved.code === code ? saved.token : undefined });
+  if (!r.ok) return $('#err').textContent = r.error || 'Could not join.';
+  store.set('slg_player', { code: r.code, token: r.token, name: r.name });
+  location.href = 'play.html';
+};
+(q.get('code') ? $('#name') : $('#code')).focus();
+</script>
+</body></html>

@@ -1,0 +1,782 @@
+[
+ {
+  "letter": "A",
+  "clue": "A person who studies stars, planets, and other objects in space.",
+  "answer": "Astronomer",
+  "alt": []
+ },
+ {
+  "letter": "A",
+  "clue": "A strong desire to achieve something.",
+  "answer": "Ambition",
+  "alt": []
+ },
+ {
+  "letter": "A",
+  "clue": "A person who publicly supports a cause or speaks on someone’s behalf.",
+  "answer": "Advocate",
+  "alt": []
+ },
+ {
+  "letter": "A",
+  "clue": "The act of making something larger or more intense.",
+  "answer": "Amplification",
+  "alt": []
+ },
+ {
+  "letter": "A",
+  "clue": "A feeling of deep affection or liking.",
+  "answer": "Adoration",
+  "alt": []
+ },
+ {
+  "letter": "B",
+  "clue": "A feeling of complete happiness or joy.",
+  "answer": "Bliss",
+  "alt": []
+ },
+ {
+  "letter": "B",
+  "clue": "A formal agreement between two or more parties.",
+  "answer": "Bargain",
+  "alt": []
+ },
+ {
+  "letter": "B",
+  "clue": "A person who buys goods or services from a business.",
+  "answer": "Buyer",
+  "alt": []
+ },
+ {
+  "letter": "B",
+  "clue": "A sudden and temporary interruption or pause.",
+  "answer": "Break",
+  "alt": []
+ },
+ {
+  "letter": "B",
+  "clue": "A person who studies plants.",
+  "answer": "Botanist",
+  "alt": []
+ },
+ {
+  "letter": "C",
+  "clue": "The ability to express ideas clearly and effectively.",
+  "answer": "Communication",
+  "alt": []
+ },
+ {
+  "letter": "C",
+  "clue": "A person who collects or takes care of objects in a museum.",
+  "answer": "Curator",
+  "alt": []
+ },
+ {
+  "letter": "C",
+  "clue": "A state of being puzzled or unable to understand something.",
+  "answer": "Confusion",
+  "alt": []
+ },
+ {
+  "letter": "C",
+  "clue": "A formal promise or agreement.",
+  "answer": "Commitment",
+  "alt": []
+ },
+ {
+  "letter": "C",
+  "clue": "A person who advises clients about money and investments.",
+  "answer": "Consultant",
+  "alt": []
+ },
+ {
+  "letter": "D",
+  "clue": "A person who manages or supervises an organization or department.",
+  "answer": "Director",
+  "alt": []
+ },
+ {
+  "letter": "D",
+  "clue": "A reduction in size, amount, or intensity.",
+  "answer": "Decrease",
+  "alt": []
+ },
+ {
+  "letter": "D",
+  "clue": "The ability to recognize or understand subtle differences.",
+  "answer": "Discernment",
+  "alt": []
+ },
+ {
+  "letter": "D",
+  "clue": "A person chosen to represent others at a meeting or event.",
+  "answer": "Delegate",
+  "alt": []
+ },
+ {
+  "letter": "D",
+  "clue": "A strong disagreement or argument.",
+  "answer": "Dispute",
+  "alt": []
+ },
+ {
+  "letter": "E",
+  "clue": "The ability to understand and share another person’s feelings.",
+  "answer": "Empathy",
+  "alt": []
+ },
+ {
+  "letter": "E",
+  "clue": "A person who starts and runs a business.",
+  "answer": "Entrepreneur",
+  "alt": []
+ },
+ {
+  "letter": "E",
+  "clue": "A feeling of great respect or admiration.",
+  "answer": "Esteem",
+  "alt": []
+ },
+ {
+  "letter": "E",
+  "clue": "A formal public display or performance.",
+  "answer": "Exhibition",
+  "alt": []
+ },
+ {
+  "letter": "E",
+  "clue": "The act of making something better or more complete.",
+  "answer": "Enhancement",
+  "alt": []
+ },
+ {
+  "letter": "F",
+  "clue": "A strong belief or trust in someone or something.",
+  "answer": "Faith",
+  "alt": []
+ },
+ {
+  "letter": "F",
+  "clue": "The ability to face difficulty with courage and strength.",
+  "answer": "Fortitude",
+  "alt": []
+ },
+ {
+  "letter": "F",
+  "clue": "A state of intense excitement or uncontrolled activity.",
+  "answer": "Frenzy",
+  "alt": []
+ },
+ {
+  "letter": "F",
+  "clue": "A person who establishes or starts something, such as a company.",
+  "answer": "Founder",
+  "alt": []
+ },
+ {
+  "letter": "F",
+  "clue": "A benefit or special feature that makes something attractive.",
+  "answer": "Feature",
+  "alt": []
+ },
+ {
+  "letter": "G",
+  "clue": "A feeling of thankfulness and appreciation.",
+  "answer": "Gratitude",
+  "alt": []
+ },
+ {
+  "letter": "G",
+  "clue": "A person who studies the Earth’s physical features.",
+  "answer": "Geographer",
+  "alt": []
+ },
+ {
+  "letter": "G",
+  "clue": "A formal promise that something will happen or be done.",
+  "answer": "Guarantee",
+  "alt": []
+ },
+ {
+  "letter": "G",
+  "clue": "A gradual increase or development over time.",
+  "answer": "Growth",
+  "alt": []
+ },
+ {
+  "letter": "G",
+  "clue": "A person who gives money, help, or support to others.",
+  "answer": "Giver",
+  "alt": []
+ },
+ {
+  "letter": "H",
+  "clue": "A person who studies and writes about the past.",
+  "answer": "Historian",
+  "alt": []
+ },
+ {
+  "letter": "H",
+  "clue": "The quality of being modest and not overly proud.",
+  "answer": "Humility",
+  "alt": []
+ },
+ {
+  "letter": "H",
+  "clue": "A feeling of pleasure or contentment.",
+  "answer": "Happiness",
+  "alt": []
+ },
+ {
+  "letter": "H",
+  "clue": "A place where someone can hide or take shelter.",
+  "answer": "Hideout",
+  "alt": []
+ },
+ {
+  "letter": "H",
+  "clue": "A person who helps people in need, often through organized aid.",
+  "answer": "Humanitarian",
+  "alt": []
+ },
+ {
+  "letter": "I",
+  "clue": "A person who introduces new ideas or methods.",
+  "answer": "Innovator",
+  "alt": []
+ },
+ {
+  "letter": "I",
+  "clue": "A sudden understanding of something previously unclear.",
+  "answer": "Insight",
+  "alt": []
+ },
+ {
+  "letter": "I",
+  "clue": "The ability to affect the actions or opinions of others.",
+  "answer": "Influence",
+  "alt": []
+ },
+ {
+  "letter": "I",
+  "clue": "A person who creates or designs something new.",
+  "answer": "Inventor",
+  "alt": []
+ },
+ {
+  "letter": "I",
+  "clue": "The act of bringing someone or something into a group.",
+  "answer": "Inclusion",
+  "alt": []
+ },
+ {
+  "letter": "J",
+  "clue": "A person who reports, writes, or edits news stories.",
+  "answer": "Journalist",
+  "alt": []
+ },
+ {
+  "letter": "J",
+  "clue": "A feeling of great joy or celebration.",
+  "answer": "Jubilation",
+  "alt": []
+ },
+ {
+  "letter": "J",
+  "clue": "A person who decides the outcome of a contest or legal case.",
+  "answer": "Judge",
+  "alt": []
+ },
+ {
+  "letter": "J",
+  "clue": "A sudden sharp movement or shock.",
+  "answer": "Jolt",
+  "alt": []
+ },
+ {
+  "letter": "J",
+  "clue": "A group of people serving together on a particular task.",
+  "answer": "Jury",
+  "alt": []
+ },
+ {
+  "letter": "K",
+  "clue": "Facts, information, and skills gained through learning or experience.",
+  "answer": "Knowledge",
+  "alt": []
+ },
+ {
+  "letter": "K",
+  "clue": "A natural ability or talent for doing something.",
+  "answer": "Knack",
+  "alt": []
+ },
+ {
+  "letter": "K",
+  "clue": "A person who rules a kingdom.",
+  "answer": "King",
+  "alt": []
+ },
+ {
+  "letter": "K",
+  "clue": "A small, often affectionate or playful touch with the lips.",
+  "answer": "Kiss",
+  "alt": []
+ },
+ {
+  "letter": "K",
+  "clue": "A person who prepares and serves food professionally.",
+  "answer": "Kitchen chef",
+  "alt": []
+ },
+ {
+  "letter": "L",
+  "clue": "A person qualified to practice law.",
+  "answer": "Lawyer",
+  "alt": []
+ },
+ {
+  "letter": "L",
+  "clue": "The ability to read and write.",
+  "answer": "Literacy",
+  "alt": []
+ },
+ {
+  "letter": "L",
+  "clue": "A person who guides or inspires a group.",
+  "answer": "Leader",
+  "alt": []
+ },
+ {
+  "letter": "L",
+  "clue": "A strong feeling of affection.",
+  "answer": "Love",
+  "alt": []
+ },
+ {
+  "letter": "L",
+  "clue": "A place or position where something begins.",
+  "answer": "Launchpad",
+  "alt": []
+ },
+ {
+  "letter": "M",
+  "clue": "A person who studies weather and the atmosphere.",
+  "answer": "Meteorologist",
+  "alt": []
+ },
+ {
+  "letter": "M",
+  "clue": "A person who creates or performs music.",
+  "answer": "Musician",
+  "alt": []
+ },
+ {
+  "letter": "M",
+  "clue": "The act of watching or checking something over time.",
+  "answer": "Monitoring",
+  "alt": []
+ },
+ {
+  "letter": "M",
+  "clue": "A reason or drive that makes someone act.",
+  "answer": "Motivation",
+  "alt": []
+ },
+ {
+  "letter": "M",
+  "clue": "A large group of people or things gathered together.",
+  "answer": "Multitude",
+  "alt": []
+ },
+ {
+  "letter": "N",
+  "clue": "A person who is new to a skill, job, or activity.",
+  "answer": "Novice",
+  "alt": []
+ },
+ {
+  "letter": "N",
+  "clue": "The process of discussing something to reach an agreement.",
+  "answer": "Negotiation",
+  "alt": []
+ },
+ {
+  "letter": "N",
+  "clue": "A message giving information or announcing something.",
+  "answer": "Notification",
+  "alt": []
+ },
+ {
+  "letter": "N",
+  "clue": "A person who studies or cares for nature and wildlife.",
+  "answer": "Naturalist",
+  "alt": []
+ },
+ {
+  "letter": "N",
+  "clue": "A feeling of unease or worry about what may happen.",
+  "answer": "Nervousness",
+  "alt": []
+ },
+ {
+  "letter": "O",
+  "clue": "A person who watches or notices something carefully.",
+  "answer": "Observer",
+  "alt": []
+ },
+ {
+  "letter": "O",
+  "clue": "A group working together in an organized way.",
+  "answer": "Organization",
+  "alt": []
+ },
+ {
+  "letter": "O",
+  "clue": "A person who plans and coordinates an event or activity.",
+  "answer": "Organizer",
+  "alt": []
+ },
+ {
+  "letter": "O",
+  "clue": "A chance or suitable time to do something.",
+  "answer": "Opportunity",
+  "alt": []
+ },
+ {
+  "letter": "O",
+  "clue": "The act of getting past a difficulty or barrier.",
+  "answer": "Overcoming",
+  "alt": []
+ },
+ {
+  "letter": "P",
+  "clue": "A person who studies the human mind and behavior.",
+  "answer": "Psychologist",
+  "alt": []
+ },
+ {
+  "letter": "P",
+  "clue": "The ability to wait calmly without becoming annoyed.",
+  "answer": "Patience",
+  "alt": []
+ },
+ {
+  "letter": "P",
+  "clue": "A person who is among the first to explore or develop something.",
+  "answer": "Pioneer",
+  "alt": []
+ },
+ {
+  "letter": "P",
+  "clue": "A strong enthusiasm or excitement for something.",
+  "answer": "Passion",
+  "alt": []
+ },
+ {
+  "letter": "P",
+  "clue": "The act of moving forward or improving.",
+  "answer": "Progress",
+  "alt": []
+ },
+ {
+  "letter": "Q",
+  "clue": "A question or request for information.",
+  "answer": "Query",
+  "alt": []
+ },
+ {
+  "letter": "Q",
+  "clue": "A difficult situation that requires a choice or solution.",
+  "answer": "Quandary",
+  "alt": []
+ },
+ {
+  "letter": "Q",
+  "clue": "A person who is unusually curious and asks many questions.",
+  "answer": "Questioner",
+  "alt": []
+ },
+ {
+  "letter": "Q",
+  "clue": "The standard of how good or excellent something is.",
+  "answer": "Quality",
+  "alt": []
+ },
+ {
+  "letter": "Q",
+  "clue": "A person who leaves a job, activity, or competition.",
+  "answer": "Quitter",
+  "alt": []
+ },
+ {
+  "letter": "R",
+  "clue": "The ability to recover after difficulties or setbacks.",
+  "answer": "Resilience",
+  "alt": []
+ },
+ {
+  "letter": "R",
+  "clue": "A person who studies or conducts a careful investigation.",
+  "answer": "Researcher",
+  "alt": []
+ },
+ {
+  "letter": "R",
+  "clue": "A strong feeling of deep respect or awe.",
+  "answer": "Reverence",
+  "alt": []
+ },
+ {
+  "letter": "R",
+  "clue": "The act of doing or saying something again.",
+  "answer": "Repetition",
+  "alt": []
+ },
+ {
+  "letter": "R",
+  "clue": "A person who speaks or acts on behalf of a group.",
+  "answer": "Representative",
+  "alt": []
+ },
+ {
+  "letter": "S",
+  "clue": "A person who studies human society and social relationships.",
+  "answer": "Sociologist",
+  "alt": []
+ },
+ {
+  "letter": "S",
+  "clue": "The act of giving something up for someone or something else.",
+  "answer": "Sacrifice",
+  "alt": []
+ },
+ {
+  "letter": "S",
+  "clue": "A person who saves money instead of spending it.",
+  "answer": "Saver",
+  "alt": []
+ },
+ {
+  "letter": "S",
+  "clue": "The condition of being steady, secure, or not likely to change.",
+  "answer": "Stability",
+  "alt": []
+ },
+ {
+  "letter": "S",
+  "clue": "The ability to understand your own thoughts and feelings.",
+  "answer": "Self-awareness",
+  "alt": []
+ },
+ {
+  "letter": "T",
+  "clue": "A person who trains or teaches others a skill.",
+  "answer": "Trainer",
+  "alt": []
+ },
+ {
+  "letter": "T",
+  "clue": "A change in form, appearance, or character.",
+  "answer": "Transformation",
+  "alt": []
+ },
+ {
+  "letter": "T",
+  "clue": "A feeling of mental or emotional strain.",
+  "answer": "Tension",
+  "alt": []
+ },
+ {
+  "letter": "T",
+  "clue": "A person who travels to explore unfamiliar places.",
+  "answer": "Traveler",
+  "alt": []
+ },
+ {
+  "letter": "T",
+  "clue": "The ability to stay calm and avoid excess, especially when emotions run high.",
+  "answer": "Temperance",
+  "alt": []
+ },
+ {
+  "letter": "U",
+  "clue": "The act of joining separate things into one.",
+  "answer": "Unification",
+  "alt": []
+ },
+ {
+  "letter": "U",
+  "clue": "The usefulness or practical value of something.",
+  "answer": "Utility",
+  "alt": []
+ },
+ {
+  "letter": "U",
+  "clue": "The act of finding or revealing something hidden.",
+  "answer": "Uncovering",
+  "alt": []
+ },
+ {
+  "letter": "U",
+  "clue": "A performer who learns another actor’s role and can take over if needed.",
+  "answer": "Understudy",
+  "alt": []
+ },
+ {
+  "letter": "U",
+  "clue": "A person who enforces the rules during a sports game.",
+  "answer": "Umpire",
+  "alt": []
+ },
+ {
+  "letter": "V",
+  "clue": "A person who offers help willingly and without pay.",
+  "answer": "Volunteer",
+  "alt": []
+ },
+ {
+  "letter": "V",
+  "clue": "The quality of being able to adapt to different tasks or situations.",
+  "answer": "Versatility",
+  "alt": []
+ },
+ {
+  "letter": "V",
+  "clue": "The act of expressing an opinion or putting something into words.",
+  "answer": "Voicing",
+  "alt": []
+ },
+ {
+  "letter": "V",
+  "clue": "A person who cares for sick or injured animals.",
+  "answer": "Veterinarian",
+  "alt": []
+ },
+ {
+  "letter": "V",
+  "clue": "A strong energy or enthusiasm for an activity.",
+  "answer": "Vigor",
+  "alt": []
+ },
+ {
+  "letter": "W",
+  "clue": "A person who creates books, articles, or other written work.",
+  "answer": "Writer",
+  "alt": []
+ },
+ {
+  "letter": "W",
+  "clue": "The ability to make sensible decisions based on experience.",
+  "answer": "Wisdom",
+  "alt": []
+ },
+ {
+  "letter": "W",
+  "clue": "A feeling of amazement and admiration.",
+  "answer": "Wonder",
+  "alt": []
+ },
+ {
+  "letter": "W",
+  "clue": "A person who studies or observes animals in nature.",
+  "answer": "Wildlife biologist",
+  "alt": []
+ },
+ {
+  "letter": "W",
+  "clue": "A promise or assurance that something will happen.",
+  "answer": "Warranty",
+  "alt": []
+ },
+ {
+  "letter": "X",
+  "clue": "A musical instrument with wooden bars that are struck with mallets.",
+  "answer": "Xylophone",
+  "alt": []
+ },
+ {
+  "letter": "X",
+  "clue": "A person who plays the instrument with wooden bars and mallets.",
+  "answer": "Xylophonist",
+  "alt": []
+ },
+ {
+  "letter": "X",
+  "clue": "A word beginning with X that describes a fear of strangers or foreigners.",
+  "answer": "Xenophobia",
+  "alt": []
+ },
+ {
+  "letter": "X",
+  "clue": "A person who has a strong fear or dislike of strangers or foreigners.",
+  "answer": "Xenophobe",
+  "alt": []
+ },
+ {
+  "letter": "X",
+  "clue": "A person who studies or is interested in foreign cultures.",
+  "answer": "Xenophile",
+  "alt": []
+ },
+ {
+  "letter": "Y",
+  "clue": "A person who practices yoga.",
+  "answer": "Yogi",
+  "alt": []
+ },
+ {
+  "letter": "Y",
+  "clue": "A strong feeling of longing or desire for something.",
+  "answer": "Yearning",
+  "alt": []
+ },
+ {
+  "letter": "Y",
+  "clue": "The period of life between childhood and adulthood.",
+  "answer": "Youth",
+  "alt": []
+ },
+ {
+  "letter": "Y",
+  "clue": "A person who sails or works on a yacht.",
+  "answer": "Yachtsman",
+  "alt": []
+ },
+ {
+  "letter": "Y",
+  "clue": "A cheerful exclamation used to express excitement.",
+  "answer": "Yippee",
+  "alt": []
+ },
+ {
+  "letter": "Z",
+  "clue": "A scientist who studies animals.",
+  "answer": "Zoologist",
+  "alt": []
+ },
+ {
+  "letter": "Z",
+  "clue": "Great energy, enthusiasm, or passion.",
+  "answer": "Zeal",
+  "alt": []
+ },
+ {
+  "letter": "Z",
+  "clue": "The highest point or peak of something.",
+  "answer": "Zenith",
+  "alt": []
+ },
+ {
+  "letter": "Z",
+  "clue": "A place where animals are kept for public viewing and care.",
+  "answer": "Zoo",
+  "alt": []
+ },
+ {
+  "letter": "Z",
+  "clue": "A person who is full of enthusiasm and energy for a cause.",
+  "answer": "Zealot",
+  "alt": []
+ }
+]

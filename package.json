@@ -1,0 +1,8 @@
+{
+  "name": "same-letter-different-words",
+  "version": "1.0.0",
+  "description": "Live multiplayer race version of the Same Letter, Different Words game",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}

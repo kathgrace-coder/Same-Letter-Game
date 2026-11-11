@@ -1,0 +1,247 @@
+[
+ {
+  "letter": "A",
+  "n": 1,
+  "clue": "A person who studies stars, planets, and other objects in space.",
+  "answer": "Astronomer",
+  "alt": []
+ },
+ {
+  "letter": "A",
+  "n": 2,
+  "clue": "A strong desire to achieve something.",
+  "answer": "Ambition",
+  "alt": []
+ },
+ {
+  "letter": "A",
+  "n": 3,
+  "clue": "A person who publicly supports a cause or speaks on someone’s behalf.",
+  "answer": "Advocate",
+  "alt": []
+ },
+ {
+  "letter": "A",
+  "n": 4,
+  "clue": "The act of making something larger or more intense.",
+  "answer": "Amplification",
+  "alt": []
+ },
+ {
+  "letter": "A",
+  "n": 5,
+  "clue": "A feeling of deep affection or liking.",
+  "answer": "Adoration",
+  "alt": []
+ },
+ {
+  "letter": "H",
+  "n": 1,
+  "clue": "A person who studies and writes about the past.",
+  "answer": "Historian",
+  "alt": []
+ },
+ {
+  "letter": "H",
+  "n": 2,
+  "clue": "The quality of being modest and not overly proud.",
+  "answer": "Humility",
+  "alt": []
+ },
+ {
+  "letter": "H",
+  "n": 3,
+  "clue": "A feeling of pleasure or contentment.",
+  "answer": "Happiness",
+  "alt": []
+ },
+ {
+  "letter": "H",
+  "n": 4,
+  "clue": "A place where someone can hide or take shelter.",
+  "answer": "Hideout",
+  "alt": []
+ },
+ {
+  "letter": "H",
+  "n": 5,
+  "clue": "A person who helps people in need, often through organized aid.",
+  "answer": "Humanitarian",
+  "alt": []
+ },
+ {
+  "letter": "J",
+  "n": 1,
+  "clue": "A person who reports, writes, or edits news stories.",
+  "answer": "Journalist",
+  "alt": []
+ },
+ {
+  "letter": "J",
+  "n": 2,
+  "clue": "A feeling of great joy or celebration.",
+  "answer": "Jubilation",
+  "alt": []
+ },
+ {
+  "letter": "J",
+  "n": 3,
+  "clue": "A person who decides the outcome of a contest or legal case.",
+  "answer": "Judge",
+  "alt": []
+ },
+ {
+  "letter": "J",
+  "n": 4,
+  "clue": "A sudden sharp movement or shock.",
+  "answer": "Jolt",
+  "alt": []
+ },
+ {
+  "letter": "J",
+  "n": 5,
+  "clue": "A group of people serving together on a particular task.",
+  "answer": "Jury",
+  "alt": []
+ },
+ {
+  "letter": "L",
+  "n": 1,
+  "clue": "A person qualified to practice law.",
+  "answer": "Lawyer",
+  "alt": []
+ },
+ {
+  "letter": "L",
+  "n": 2,
+  "clue": "The ability to read and write.",
+  "answer": "Literacy",
+  "alt": []
+ },
+ {
+  "letter": "L",
+  "n": 3,
+  "clue": "A person who guides or inspires a group.",
+  "answer": "Leader",
+  "alt": []
+ },
+ {
+  "letter": "L",
+  "n": 4,
+  "clue": "A strong feeling of affection.",
+  "answer": "Love",
+  "alt": []
+ },
+ {
+  "letter": "L",
+  "n": 5,
+  "clue": "A place or position where something begins.",
+  "answer": "Launchpad",
+  "alt": []
+ },
+ {
+  "letter": "P",
+  "n": 1,
+  "clue": "A person who studies the human mind and behavior.",
+  "answer": "Psychologist",
+  "alt": []
+ },
+ {
+  "letter": "P",
+  "n": 2,
+  "clue": "The ability to wait calmly without becoming annoyed.",
+  "answer": "Patience",
+  "alt": []
+ },
+ {
+  "letter": "P",
+  "n": 3,
+  "clue": "A person who is among the first to explore or develop something.",
+  "answer": "Pioneer",
+  "alt": []
+ },
+ {
+  "letter": "P",
+  "n": 4,
+  "clue": "A strong enthusiasm or excitement for something.",
+  "answer": "Passion",
+  "alt": []
+ },
+ {
+  "letter": "P",
+  "n": 5,
+  "clue": "The act of moving forward or improving.",
+  "answer": "Progress",
+  "alt": []
+ },
+ {
+  "letter": "R",
+  "n": 1,
+  "clue": "The ability to recover after difficulties or setbacks.",
+  "answer": "Resilience",
+  "alt": []
+ },
+ {
+  "letter": "R",
+  "n": 2,
+  "clue": "A person who studies or conducts a careful investigation.",
+  "answer": "Researcher",
+  "alt": []
+ },
+ {
+  "letter": "R",
+  "n": 3,
+  "clue": "A strong feeling of deep respect or awe.",
+  "answer": "Reverence",
+  "alt": []
+ },
+ {
+  "letter": "R",
+  "n": 4,
+  "clue": "The act of doing or saying something again.",
+  "answer": "Repetition",
+  "alt": []
+ },
+ {
+  "letter": "R",
+  "n": 5,
+  "clue": "A person who speaks or acts on behalf of a group.",
+  "answer": "Representative",
+  "alt": []
+ },
+ {
+  "letter": "V",
+  "n": 1,
+  "clue": "A person who offers help willingly and without pay.",
+  "answer": "Volunteer",
+  "alt": []
+ },
+ {
+  "letter": "V",
+  "n": 2,
+  "clue": "The quality of being able to adapt to different tasks or situations.",
+  "answer": "Versatility",
+  "alt": []
+ },
+ {
+  "letter": "V",
+  "n": 3,
+  "clue": "The act of expressing an opinion or putting something into words.",
+  "answer": "Voicing",
+  "alt": []
+ },
+ {
+  "letter": "V",
+  "n": 4,
+  "clue": "A person who cares for sick or injured animals.",
+  "answer": "Veterinarian",
+  "alt": []
+ },
+ {
+  "letter": "V",
+  "n": 5,
+  "clue": "A strong energy or enthusiasm for an activity.",
+  "answer": "Vigor",
+  "alt": []
+ }
+]

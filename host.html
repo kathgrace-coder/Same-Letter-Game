@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Host — Same Letter, Different Words</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="wrap">
+  <div class="spread" style="margin-bottom:18px"><span class="brand">Same Letter, Different Words · Host</span><span id="top"></span></div>
+  <div id="stage"></div>
+</div>
+<script src="common.js"></script>
+<script>
+let LETTERS = [];
+const stage = $('#stage');
+let H = store.get('slg_host'), key = '', stopES = null, selected = new Set();
+
+fetch('/api/letters').then(r => r.json()).then(j => { LETTERS = j.letters; selected = new Set(LETTERS); if (H) connect(); else setup(); });
+
+function setup() {
+  stopES && stopES(); stopTimer(); key = '';
+  $('#top').innerHTML = '';
+  stage.innerHTML = `<div class="card" style="max-width:820px;margin:0 auto">
+    <h2 style="font-size:34px">Set up your game</h2>
+    <label class="lbl">Letters to play <span class="muted" id="lcount"></span></label>
+    <div class="letters" id="lts">${LETTERS.map(l => `<button type="button" class="lt on" data-l="${l}">${l}</button>`).join('')}</div>
+    <div class="row" style="margin-top:10px">
+      <button type="button" class="btn small ghost" id="all">All</button>
+      <button type="button" class="btn small ghost" id="none">None</button>
+      <button type="button" class="btn small ghost" id="rand">Random 4</button>
+    </div>
+    <div class="row" style="gap:24px;margin-top:6px">
+      <div><label class="lbl">Seconds per clue</label><input type="number" id="secs" value="10" min="5" max="60" style="width:130px"></div>
+      <div><label class="lbl">Scoring</label><select id="scoring"><option value="speed">Speed race (faster = more points)</option><option value="classic">Classic (1 point each, X/Y/Z = 2)</option></select></div>
+    </div>
+    <label class="opt"><input type="checkbox" id="auto" checked> Auto-advance to the next clue after the answer is shown</label>
+    <label class="opt"><input type="checkbox" id="shuf"> Shuffle the order of the letters</label>
+    <label class="opt"><input type="checkbox" id="fuzzy"> Forgive one typo in long words (7+ letters)</label>
+    <div class="err" id="err"></div>
+    <div class="row" style="margin-top:14px"><button class="btn coral big" id="go">Create lobby</button><span class="muted" id="sum"></span></div>
+  </div>`;
+  const refresh = () => {
+    document.querySelectorAll('.lt').forEach(b => b.classList.toggle('on', selected.has(b.dataset.l)));
+    $('#lcount').textContent = `(${selected.size} letters · ${selected.size * 5} clues)`;
+    const secs = Number($('#secs').value) || 10;
+    $('#sum').textContent = selected.size ? `≈ ${Math.round(selected.size * 5 * (secs + 6) / 60)} min with auto-advance` : '';
+  };
+  const setSel = a => { selected = new Set(a); refresh(); };
+  $('#lts').onclick = e => { const l = e.target.dataset.l; if (!l) return; selected.has(l) ? selected.delete(l) : selected.add(l); refresh(); };
+  $('#all').onclick = () => setSel(LETTERS); $('#none').onclick = () => setSel([]);
+  $('#rand').onclick = () => setSel([...LETTERS].sort(() => Math.random() - .5).slice(0, 4));
+  $('#secs').oninput = refresh; refresh();
+  $('#go').onclick = async () => {
+    if (!selected.size) return $('#err').textContent = 'Pick at least one letter.';
+    const r = await post('/api/create', { letters: [...selected], clueSeconds: $('#secs').value, scoring: $('#scoring').value, autoAdvance: $('#auto').checked, shuffleLetters: $('#shuf').checked, fuzzy: $('#fuzzy').checked });
+    if (!r.ok) return $('#err').textContent = r.error || 'Could not create game.';
+    H = { code: r.code, hostToken: r.hostToken }; store.set('slg_host', H); connect();
+  };
+}
+
+function connect() {
+  stopES = listen(`/api/events?role=host&code=${H.code}&token=${H.hostToken}`, onState, () => { store.del('slg_host'); H = null; setup(); });
+}
+const act = (action, extra = {}) => post('/api/host', { code: H.code, token: H.hostToken, action, ...extra });
+const joinUrl = () => `${location.origin}/?code=${H.code}`;
+
+function onState(s) {
+  $('#top').innerHTML = s.phase === 'lobby' || s.phase === 'finished' ? '' : `<button class="btn small ghost" id="endb">End game</button>`;
+  if ($('#endb')) $('#endb').onclick = () => confirm('End the game now and show final results?') && act('end');
+  const k = [s.phase, s.progress.index].join('|');
+  if (k !== key) { key = k; build(s); }
+  update(s);
+}
+
+function build(s) {
+  stopTimer();
+  if (s.phase === 'lobby') {
+    stage.innerHTML = `<div class="grid2"><div class="card center">
+        <span class="pill">Players join at</span>
+        <div style="font-family:var(--display);font-weight:800;font-size:clamp(20px,3vw,30px);margin:8px 0 2px;word-break:break-all">${esc(location.host)}</div>
+        <span class="pill" style="margin-top:12px">with game code</span>
+        <div class="code" style="margin:12px 0 18px">${s.code}</div>
+        <div class="row" style="justify-content:center">
+          <button class="btn ghost small" id="cp">Copy invite link</button>
+          <button class="btn ghost small" id="cc">Copy invite message</button></div>
+        <p class="muted" style="font-weight:700;margin-top:14px">${s.settings.letters.length} letters · ${s.progress.total} clues · ${s.settings.clueSeconds}s each · ${s.settings.scoring === 'speed' ? 'speed scoring' : 'classic scoring'}</p>
+      </div>
+      <div class="card"><h3>Players <span id="pc" class="muted"></span></h3><div class="chips" id="chips" style="margin:14px 0"></div>
+        <div class="err" id="err"></div>
+        <button class="btn coral big" id="start" style="width:100%">Start game</button></div></div>`;
+    $('#cp').onclick = () => copy(joinUrl(), $('#cp'));
+    $('#cc').onclick = () => copy(`Join our game! Open ${joinUrl()} (code: ${H.code}) and type your name. Get ready to race!`, $('#cc'));
+    $('#start').onclick = async () => { const r = await act('start'); if (!r.ok) $('#err').textContent = r.error || ''; };
+  } else if (s.phase === 'clue') {
+    stage.innerHTML = `<div class="grid2"><div class="card">
+        <div class="row" style="gap:22px;flex-wrap:nowrap"><div class="tile">${s.clue.letter}</div>
+          <div><span class="pill">Clue ${s.clue.n} of 5</span><div class="muted" style="font-weight:700;margin-top:6px">Round ${LETTERS.indexOf(s.clue.letter) >= 0 ? s.settings.letters.indexOf(s.clue.letter) + 1 : ''} of ${s.settings.letters.length}</div></div></div>
+        <p class="cluebox" style="margin:26px 0">${esc(s.clue.text)}</p>
+        <div class="row" style="flex-wrap:nowrap"><div class="timer" style="flex:1"><i></i></div><div class="secs" id="secs"></div></div>
+        <div class="row" style="margin-top:18px"><span class="pill" id="ans"></span><button class="btn small ghost" id="rv">Reveal answer now</button></div>
+      </div>
+      <div class="card"><h3>Finish order</h3><ol class="list" id="fin" style="margin-top:12px"></ol></div></div>`;
+    runTimer(s.clue.endsAt, s.clue.seconds, $('.timer'), $('#secs'));
+    $('#rv').onclick = () => act('reveal');
+  } else if (s.phase === 'reveal') {
+    stage.innerHTML = `<div class="grid2"><div class="card center">
+        <span class="pill">The answer is</span><div class="answer" style="margin:12px 0 8px">${esc(s.reveal.answer)}</div>
+        <p class="muted" style="font-weight:700">${esc(s.clue.text)}</p>
+        <div class="row" style="justify-content:center;margin-top:18px"><button class="btn big teal" id="nx">${s.reveal.last ? 'Finish game' : 'Next clue →'}</button></div>
+        <p class="muted" id="nxn" style="font-weight:700"></p></div>
+      <div class="card"><h3>Who got it</h3><ol class="list" id="fin" style="margin-top:12px"></ol>
+        <h3 style="margin-top:20px">Leaderboard</h3><div id="lb" style="margin-top:10px"></div></div></div>`;
+    $('#nx').onclick = () => act('next');
+  } else if (s.phase === 'finished') {
+    stage.innerHTML = `<div class="center" style="margin-bottom:10px"><h1 style="font-size:48px">🏁 Final results</h1></div>
+      <div id="pod"></div>
+      <div class="card" style="max-width:720px;margin:0 auto"><h3>Full leaderboard</h3><div id="lb" style="margin:12px 0 18px"></div>
+        <div class="row"><a class="btn small teal" href="/api/results.csv?code=${H.code}&token=${H.hostToken}">⬇ Scores (CSV)</a>
+        <a class="btn small ghost" href="/api/results.csv?code=${H.code}&token=${H.hostToken}&detail=1">⬇ Clue-by-clue (CSV)</a>
+        <button class="btn small coral" id="nw">New game</button></div></div>`;
+    $('#nw').onclick = () => { store.del('slg_host'); H = null; setup(); };
+  }
+}
+
+function update(s) {
+  if (s.phase === 'lobby') {
+    $('#pc').textContent = `(${s.playerCount})`;
+    $('#chips').innerHTML = s.players.map(p => `<span class="chip ${p.connected ? '' : 'off'}">${esc(p.name)}<button data-k="${p.id}" title="Remove">×</button></span>`).join('') || '<span class="muted">Waiting for players to join…</span>';
+    $('#chips').onclick = e => e.target.dataset.k && act('kick', { id: e.target.dataset.k });
+  } else if (s.phase === 'clue') {
+    $('#ans').textContent = `${s.answeredCount} of ${s.activeCount} answered`;
+    $('#fin').innerHTML = s.solved.map((x, i) => `<li class="${i === 0 ? 'first' : ''}"><span class="n">${i + 1}</span><span class="grow">${esc(x.name)}</span><span class="muted">${fmt(x.ms)}</span><span class="pts">+${x.points}</span></li>`).join('') || '<li class="muted">Waiting for the first correct answer…</li>';
+  } else if (s.phase === 'reveal') {
+    $('#fin').innerHTML = s.solved.map((x, i) => `<li class="${i === 0 ? 'first' : ''}"><span class="n">${i + 1}</span><span class="grow">${esc(x.name)}</span><span class="muted">${fmt(x.ms)}</span><span class="pts">+${x.points}</span></li>`).join('') || '<li class="muted">Nobody got it 😅</li>';
+    $('#lb').innerHTML = board(s.leaderboard, null, 8);
+    const left = Math.max(0, Math.ceil((s.reveal.endsAt - serverNow()) / 1000));
+    $('#nxn').textContent = s.reveal.auto ? 'Continuing automatically…' : 'Click when you are ready.';
+  } else if (s.phase === 'finished') {
+    $('#pod').innerHTML = podium(s.leaderboard); $('#lb').innerHTML = board(s.leaderboard, null, 100);
+  }
+}
+async function copy(text, btn) {
+  try { await navigator.clipboard.writeText(text); } catch { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+  const o = btn.textContent; btn.textContent = 'Copied ✓'; setTimeout(() => btn.textContent = o, 1500);
+}
+</script>
+</body></html>

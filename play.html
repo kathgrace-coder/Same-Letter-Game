@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Same Letter, Different Words</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="wrap narrow">
+  <div class="pbar"><span class="brand" id="who"></span><span class="score" id="score"></span></div>
+  <div id="stage"></div>
+</div>
+<script src="common.js"></script>
+<script>
+const me = store.get('slg_player');
+if (!me) location.href = 'index.html';
+let key = '', busy = false, v = null;
+const stage = $('#stage');
+
+listen(`/api/events?role=player&code=${me.code}&token=${me.token}`, onState, () => { store.del('slg_player'); location.href = 'index.html'; });
+
+function onState(s) {
+  v = s;
+  $('#who').textContent = s.you.name;
+  $('#score').textContent = `${s.you.score} pts` + (s.you.rank && s.phase !== 'lobby' ? ` · #${s.you.rank}` : '');
+  const k = [s.phase, s.progress.index, s.you.solved].join('|');
+  if (k !== key) { key = k; build(s); } else update(s);
+}
+
+function build(s) {
+  stopTimer();
+  if (s.phase === 'lobby') {
+    stage.innerHTML = `<div class="card center"><div style="font-size:56px">🎉</div><h2 style="font-size:32px">You're in, ${esc(s.you.name)}!</h2>
+      <p class="muted" style="font-weight:700">Waiting for the host to start…</p>
+      <p class="pill pulse">${s.playerCount} player${s.playerCount === 1 ? '' : 's'} joined</p></div>`;
+  } else if (s.phase === 'clue' && !s.you.solved) {
+    stage.innerHTML = `<div class="card">
+      <div class="row" style="gap:18px;flex-wrap:nowrap"><div class="tile">${s.clue.letter}</div>
+        <div><span class="pill">Clue ${s.clue.n} of 5</span><div class="muted" style="font-weight:700;margin-top:6px">Starts with <b>${s.clue.letter}</b></div></div></div>
+      <p class="cluebox" style="margin:22px 0">${esc(s.clue.text)}</p>
+      <div class="row" style="flex-wrap:nowrap;margin-bottom:18px"><div class="timer" style="flex:1"><i></i></div><div class="secs" id="secs"></div></div>
+      <form id="gf" autocomplete="off"><input type="text" id="gi" placeholder="Type your answer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send">
+      <button class="btn coral big" style="width:100%;margin-top:14px">Submit</button></form>
+      <div class="err" id="fb"></div></div>`;
+    runTimer(s.clue.endsAt, s.clue.seconds, $('.timer'), $('#secs'));
+    $('#gf').onsubmit = submit;
+    $('#gi').focus();
+  } else if (s.phase === 'clue') {
+    stage.innerHTML = `<div class="card center"><div class="tile" style="transform:rotate(4deg)">${s.clue.letter}</div>
+      <p class="good" style="font-family:var(--display);font-weight:900;font-size:34px;margin:18px 0 4px">Correct!</p>
+      <div class="bigpts">+${s.you.points}</div>
+      <p style="font-weight:800;font-size:20px">You finished #${s.you.place} · ${fmt(s.you.ms)}</p>
+      <div class="timer" style="margin-top:18px"><i></i></div>
+      <p class="muted" style="font-weight:700">Waiting for the others…</p></div>`;
+    runTimer(s.clue.endsAt, s.clue.seconds, $('.timer'));
+  } else if (s.phase === 'reveal') {
+    const got = s.you.solved;
+    stage.innerHTML = `<div class="card center"><span class="pill">The answer was</span>
+      <div class="answer" style="margin:10px 0 18px">${esc(s.reveal.answer)}</div>
+      ${got ? `<p class="good" style="font-family:var(--display);font-weight:900;font-size:28px;margin:0">+${s.you.points} · you were #${s.you.place}</p>`
+            : `<p class="bad" style="font-family:var(--display);font-weight:900;font-size:28px;margin:0">Missed this one</p>`}
+      <p class="muted" style="font-weight:700">You're #${s.you.rank} with ${s.you.score} pts</p></div>
+      <h3 style="margin:22px 0 10px">Leaderboard</h3><div id="lb">${board(s.leaderboard, s.you.id, 5)}</div>`;
+  } else if (s.phase === 'finished') {
+    stage.innerHTML = `<div class="card center"><div style="font-size:56px">🏁</div><h2 style="font-size:32px">Game over!</h2>
+      <p style="font-weight:800;font-size:22px">You finished #${s.you.rank} with ${s.you.score} pts</p>
+      <p class="muted" style="font-weight:700">${s.you.correct} correct answer${s.you.correct === 1 ? '' : 's'}</p></div>
+      ${podium(s.leaderboard)}<h3 style="margin:10px 0">Final leaderboard</h3>${board(s.leaderboard, s.you.id, 10)}`;
+  }
+}
+function update(s) {
+  if (s.phase === 'lobby') { const p = stage.querySelector('.pill.pulse'); if (p) p.textContent = `${s.playerCount} player${s.playerCount === 1 ? '' : 's'} joined`; }
+  if (s.phase === 'reveal') $('#lb') && ($('#lb').innerHTML = board(s.leaderboard, s.you.id, 5));
+}
+
+async function submit(e) {
+  e.preventDefault();
+  const inp = $('#gi'), text = inp.value.trim();
+  if (!text || busy) return;
+  busy = true;
+  const r = await post('/api/guess', { code: me.code, token: me.token, text });
+  busy = false;
+  const fb = $('#fb');
+  if (!fb) return;
+  if (r.status === 'wrong') { fb.textContent = 'Not quite — try again!'; inp.classList.remove('shake'); void inp.offsetWidth; inp.classList.add('shake'); inp.select(); }
+  else if (r.status === 'closed') fb.textContent = 'Time is up!';
+  else if (r.error) fb.textContent = r.error;
+  // 'correct' arrives via the live state update
+}
+</script>
+</body></html>
